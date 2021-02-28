@@ -3,6 +3,34 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.gmall.gmalluser.mapper.UserMapper">
+    <update id="updateUserId" parameterType="com.atguigu.gmall.gmalluser.bean.UmsMember">
+       update ums_member
+         set
+           member_level_id=#{memberLevelId},
+           username=#{username},
+           password=#{password},
+           nickname=#{nickname},
+           phone=#{phone},
+           status=#{status},
+           create_time=now(),
+           icon=#{icon},
+           gender=#{gender},
+           birthday=#{birthday},
+           city=#{city},
+           job=#{job},
+           personalized_signature=#{personalizedSignature},
+           source_type=#{sourceType},
+           integration=#{integration},
+           growth=#{growth},
+           luckey_count=#{luckeyCount},
+           history_integration=#{historyIntegration}
+        where id=#{id}
+    </update>
+
+    <delete id="deleteUserId">
+        delete d.* from ums_member d where d.id=#{id}
+    </delete>
+
     <select id="selectAllUser" resultType="com.atguigu.gmall.gmalluser.bean.UmsMember">
         select * from ums_member
     </select>

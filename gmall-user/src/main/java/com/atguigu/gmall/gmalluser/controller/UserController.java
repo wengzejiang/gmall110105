@@ -32,18 +32,25 @@ public class UserController {
         return umsMembers;
     }
 
-    @RequestMapping("updateUser")
-    @ResponseBody
-    public List<UmsMember> updateUser() {
-        List<UmsMember> umsMembers = userService.getAllUser();
-        return umsMembers;
-    }
-
     @RequestMapping("insertUser")
     @ResponseBody
     public void insertUser(String id,String name,String phoneNumber) {
         userService.insertUser(id,name,phoneNumber);
     }
+
+    @RequestMapping("deleteUser")
+    @ResponseBody
+    public void deleteUser(String id) {
+        userService.deleteUser(id);
+    }
+
+    @RequestMapping("updateUser")
+    @ResponseBody
+    public String updateUser(UmsMember userMappers) {
+        userService.updateUser(userMappers);
+        return "success";
+    }
+
 
     @RequestMapping("getReceiveAddressByMemberId")
     @ResponseBody
