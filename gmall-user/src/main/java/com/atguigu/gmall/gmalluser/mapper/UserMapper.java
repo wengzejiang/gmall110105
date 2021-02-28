@@ -8,4 +8,8 @@ public interface UserMapper {
     List<UmsMember> selectAllUser();
 
     void insertUserid(String id, String name, String phoneNumber);
+
+    void deleteUserId(String id);
+
+    void updateUserId(UmsMember userMappers);
 }
